@@ -1,88 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Sweta Chronicle</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #faf7fd;
-      text-align: center;
-      color: #4B0082;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweta's Chronicles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container {
-      padding: 50px 20px;
-    }
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, #FFBDC5 0%, #f5e6e8 50%, #FFBDC5 100%);
+            min-height: 100vh;
+        }
 
-    .profile-pic {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #9370DB;
-      margin-bottom: 20px;
-    }
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #670626 0%, #8b1538 100%);
+            padding: 25px 50px;
+            box-shadow: 0 4px 15px rgba(103, 6, 38, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    h1 {
-      font-size: 2.8em;
-      margin: 10px 0;
-      color: #800080;
-    }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
 
-    h2 {
-      font-size: 1.5em;
-      margin: 10px 0 30px;
-      color: #9370DB;
-    }
+        .logo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
 
-    p {
-      font-size: 1.1em;
-      max-width: 600px;
-      margin: 0 auto 40px;
-      color: #5a4e6d;
-    }
+        .logo h1 {
+            color: #FFBDC5;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+        .logo h3 {
+            color: #FFBDC5;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-    .buttons a {
-      text-decoration: none;
-      padding: 15px 30px;
-      border-radius: 30px;
-      font-weight: bold;
-      background-color: #E6E6FA;
-      color: #4B0082;
-      border: 2px solid #9370DB;
-      transition: 0.3s ease;
-    }
+        nav {
+            display: flex;
+            gap: 40px;
+        }
 
-    .buttons a:hover {
-      background-color: #D8BFD8;
-      transform: scale(1.05);
-    }
-  </style>
+        nav a {
+            color: #FFBDC5;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+        }
+
+        nav a:hover {
+            color: #fff;
+            border-bottom-color: #FFBDC5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 189, 197, 0.3) 0%, rgba(103, 6, 38, 0.1) 100%);
+            padding: 80px 50px;
+            text-align: center;
+            color: #670626;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            font-style: italic;
+            color: #8b1538;
+            font-weight: 300;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(103, 6, 38, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(103, 6, 38, 0.25);
+        }
+
+        .gallery-item-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #FFBDC5 0%, #f5e6e8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .gallery-item-content {
+            padding: 25px;
+            background: white;
+        }
+
+        .gallery-item h3 {
+            color: #670626;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item p {
+            color: #8b1538;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(103, 6, 38, 0.05) 0%, rgba(255, 189, 197, 0.1) 100%);
+            padding: 80px 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            text-align: center;
+            color: #670626;
+            font-size: 42px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 15px;
+            border: none;
+            border-bottom: 2px solid #670626;
+            background: transparent;
+            font-family: 'Times New Roman', serif;
+            font-size: 14px;
+            color: #670626;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #8b1538;
+            opacity: 0.7;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: #8b1538;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, #670626 0%, #8b1538 100%);
+            color: #FFBDC5;
+            border: none;
+            font-size: 16px;
+            font-family: 'Times New Roman', serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(103, 6, 38, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #670626;
+            color: #FFBDC5;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .contact {
+                padding: 50px 30px;
+            }
+
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-   <img src="images/IMG_0817.jpeg" alt="Sweta Profile" class="profile-pic" />
-    <h1>The Sweta Chronicle</h1>
-    <h2>Wandering with Sweta</h2>
-    <p>
-      Stats major. Storyteller. Explorer. <br />
-      Welcome to my journey — through data, destinations, and daydreams. This page is still under construction.
-    </p>
-    <div class="buttons">
-      <a href="#">Resume</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <h1>Sweta's Chronicles</h1>
+                <h3>'Galaxy Of My Thoughts'</h3>
+            </div>
+            <nav>
+                <a href="#home">HOME</a>
+                <a href="#about">ABOUT ME</a>
+                <a href="#blog">BLOG</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>Welcome to My Digital Diary</h2>
+        <p>Exploring life, thoughts, and endless possibilities</p>
+    </section>
+
+    <!-- Gallery Section (Blog Posts Preview) -->
+    <section class="gallery" id="blog">
+        <div class="gallery-item">
+            <div class="gallery-item-image">📝</div>
+            <div class="gallery-item-content">
+                <h3>My Journey</h3>
+                <p>Just documenting things to look back at.</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-image">💭</div>
+            <div class="gallery-item-content">
+                <h3>Thoughts & Reflections</h3>
+                <p>Deep dives into life's biggest questions. Philosophy, growth, and the pursuit of meaningful living.</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-image">✨</div>
+            <div class="gallery-item-content">
+                <h3>Lifestyle & Inspiration</h3>
+                <p>Everyday moments that inspire. Tips, tricks, and little things that make life beautiful.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Want to Share Words?</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+            </div>
+            <div class="form-group full">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group full">
+                <textarea placeholder="Your Message..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sweta's Chronicles. All rights reserved. | Crafted with thoughts and passion and of course love.</p>
+    </footer>
 </body>
 </html>
